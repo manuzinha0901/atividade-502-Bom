@@ -9,21 +9,27 @@
 let caixatexto = document.querySelector("input");
 let botao = document.querySelector("button");
 let naoSou = document.querySelector("a");
+let bemvinda =document.querySelector("h1");
 
-function acessar(){
-    localStorage.setItem('nome',caixatexto.value); 
-}
 function limpar(){
-    localStorage.clear();
+    localStorage.removeItem(`nome`);
 }
 
-botao.onclick = acessar;
-naoSou.onclick = limpar;
 
 if(localStorage.nome){
-    alert("existe")
+    caixatexto.style.display = "none"
+    botao.style.display = "none"
+    bemvinda.innerHTML =`seja bem vindo${localStorage.none}`
+    naoSou.innerHTML = `nao e ${localStorage.nome}?`
 }
 else{
-    alert(" n existe")
+    function acessar(){
+        localStorage.setItem('nome',caixatexto.value);
+        caixatexto.style.display = "none"
+    botao.style.display = "none"
+    bemvinda.innerHTML =`seja bem vindo${localStorage.none}`
+    naoSou.innerHTML = `nao e ${localStorage.nome}?` 
+    }
 }
+botao.onclick = acessar;
 
